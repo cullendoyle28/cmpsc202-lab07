@@ -52,7 +52,7 @@ Consider the following simple example:
 
 **Question:** Draw the full recursion tree for `MaxValue(3)` using the example above. Label the remaining capacity at each node and indicate which item is chosen along each branch.
 
-*Your Answer (take a picture and upload it):* {recursion_tree.jpg}[recursion_tree.jpg]
+*Your Answer (take a picture and upload it):* [recursion_tree.jpg]{recursion_tree.jpg}
 
 
 ## Part 4: Recurrence Relation
@@ -61,7 +61,7 @@ Consider the following simple example:
 
 *Your Answer:* 
 $OPT(M)$ = ${0}$                                (if m = 0)
-         = ${max_[1<=i<=m]{p_[i]+OPT(m-i)}}$    (if m > 0)
+= ${max[1<=i<=m]{p_[i]+OPT(m-i)}}$    (if m > 0)
 
 
 ## Part 5: Bottom-Up Dynamic Programming
