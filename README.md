@@ -60,9 +60,11 @@ Consider the following simple example:
 **Question:** Derive a mathematical recurrence relation for $OPT(W)$, the maximum value you can pack into a knapsack of capacity $W$, based on the naive recursive algorithm. Be sure to state your base case(s) and explain how you arrived at your formula.
 
 *Your Answer:* 
-$OPT(M)$ = ${0}$               (if m = 0)
+$OPT(W)$ = ${0}$               (if w = 0)
 
-or ${max[1<=i<=m]{p_i+OPT(m-i)}}$    (if m > 0)
+or ${max[1<=i<=m ] { v_i+OPT(W - w_i)}}$    (if w > 0)
+
+
 
 
 ## Part 5: Bottom-Up Dynamic Programming
