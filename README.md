@@ -52,7 +52,7 @@ Consider the following simple example:
 
 **Question:** Draw the full recursion tree for `MaxValue(3)` using the example above. Label the remaining capacity at each node and indicate which item is chosen along each branch.
 
-*Your Answer (take a picture and upload it):* [recursion_tree.jpg]{recursion_tree.jpg}
+*Your Answer (take a picture and upload it):* ![recursion_tree.jpg](recursion_tree.jpg)
 
 
 ## Part 4: Recurrence Relation
@@ -60,8 +60,9 @@ Consider the following simple example:
 **Question:** Derive a mathematical recurrence relation for $OPT(W)$, the maximum value you can pack into a knapsack of capacity $W$, based on the naive recursive algorithm. Be sure to state your base case(s) and explain how you arrived at your formula.
 
 *Your Answer:* 
-$OPT(M)$ = ${0}$                                (if m = 0)
-= ${max[1<=i<=m]{p_[i]+OPT(m-i)}}$    (if m > 0)
+$OPT(M)$ = ${0}$               (if m = 0)
+
+or ${max[1<=i<=m]{p_i+OPT(m-i)}}$    (if m > 0)
 
 
 ## Part 5: Bottom-Up Dynamic Programming
