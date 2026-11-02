@@ -17,7 +17,7 @@ Suppose we're going hiking. We have items $1, \ldots, n$ that we could pack in m
 
 **Question:** Which of the three problem variations can be solved using the dynamic programming approaches we've studied in lecture? Explain your reasoning.
 
-*Your Answer:*
+*Your Answer:* The first, second, and third problem variation can be solved using the dynamic programming approaches we've studied in lecture. For the first and second, there is a target weight capacity that we're reaching for with the 
 
 ## Part 2: The Naive Recursive Algorithm
 
@@ -40,7 +40,7 @@ Function MaxValue(W):
 
 **Question:** Which of the three problem variations (1, 2, or 3) does this algorithm solve? How do you know? Explain your reasoning.
 
-*Your Answer:*
+*Your Answer:* 2 because we're looking for a max value, which rules out 3. Also, when we're recurring, we aren't eliminating the chances of the item being used a second time, which rules out 1, making 2 the only option. We're simply maximizing the value with the weight being limited, with items having the capability of being packed twice. 
 
 ## Part 3: Recursion Tree
 
@@ -52,14 +52,16 @@ Consider the following simple example:
 
 **Question:** Draw the full recursion tree for `MaxValue(3)` using the example above. Label the remaining capacity at each node and indicate which item is chosen along each branch.
 
-*Your Answer (take a picture and upload it):*
+*Your Answer (take a picture and upload it):* {recursion_tree.jpg}[recursion_tree.jpg]
 
 
 ## Part 4: Recurrence Relation
 
 **Question:** Derive a mathematical recurrence relation for $OPT(W)$, the maximum value you can pack into a knapsack of capacity $W$, based on the naive recursive algorithm. Be sure to state your base case(s) and explain how you arrived at your formula.
 
-*Your Answer:*
+*Your Answer:* 
+$OPT(M)$ = ${0}$                                (if m = 0)
+         = ${max_[1<=i<=m]{p_[i]+OPT(m-i)}}$    (if m > 0)
 
 
 ## Part 5: Bottom-Up Dynamic Programming
