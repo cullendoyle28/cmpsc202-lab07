@@ -17,7 +17,7 @@ Suppose we're going hiking. We have items $1, \ldots, n$ that we could pack in m
 
 **Question:** Which of the three problem variations can be solved using the dynamic programming approaches we've studied in lecture? Explain your reasoning.
 
-*Your Answer:* The first, second, and third problem variation can be solved using the dynamic programming approaches we've studied in lecture. For the first and second, there is a target weight capacity that we're reaching for with the 
+*Your Answer:* The first, second, and third problem variation can be solved using the dynamic programming approaches we've studied in lecture. For the first and second, there is a target weight capacity that we're reaching for while trying to maximize the values. The difference is that for the first, you can only pack one of each item at most, and for the second, you can pack as many as you want. Dynamic programming can be used for these. For the third, we want to pack the least weight while subject to a minimum value, which is just another target value. Instead, we'll choose the smallest weight combination that directly hits our minimum value. We are pretty much just swapping variables and inequalities.
 
 ## Part 2: The Naive Recursive Algorithm
 
@@ -64,7 +64,7 @@ $OPT(W)$ = ${0}$               (if w = 0)
 
 or ${max[1<=i<=m ] { v_i+OPT(W - w_i)}}$    (if w > 0)
 
-
+The base case is when there is no remaining weight (0 weight to be used). For when we have weight to be used, we'll iterate through OPT(W) with W = total weight to consider. Here, we'll consider the max of each of our item combinations in our recursion tree until we have no weight left. We are adding the value from each item considered and subtracting the weight of that item from the total weight when we recurse. Eventually, we'll end up with no weight left to consider, ending the recursion with our maximized value. 
 
 
 ## Part 5: Bottom-Up Dynamic Programming
@@ -75,19 +75,21 @@ Instead of using the slow recursive approach, we can build a table bottom-up.
 
 | Capacity ($W$) | Optimal Value ($OPT$) | Item Chosen |
 |:---:|:---|:---|
-| **0** | | |
-| **1** | | |
-| **2** | | |
-| **3** | | |
-| **4** | | |
-| **5** | | |
-| **6** | | |
+| **0** | **0** | **0** |
+| **1** | **3** | **3** |
+| **2** | **6** | **3** |
+| **3** | **9** | **3** |
+| **4** | **12** | **3** |
+| **5** | **15** | **3** |
+| **6** | **18** | **3** |
 
 *Explain how you calculated the row for $W=6$*
+Since item 3 gives more value than item 1 and they weigh the same, we should always pick item 3 over item 1. Also, item 3 when chosen twice for a weight of 2 gives more value than item 2 which weighs 2. So, in every scenerio, we should pack as many item 3s as possible. Thus, we grab 6 items 3s and throw it in the bag, which is worth 18 value (i.e. 3 * 6 = 18).
 
 
 ## Part 6: Traceback
 
 **Question:** Using the "Item Chosen" column from the table you completed in Part 5, trace back to find the exact quantities of each item to pack that maximize the value. What is the final optimal packing configuration for $W=6$ and the maximum value?
 
-*Your Answer:*
+*Your Answer:* 
+First, we choose item 3, now we have 5 capacity. Then we choose item 3 again, now we have 4 capacity. Then item 3, capacity 3. Then item 3, we have capacity 2. Then item 3, we have capacity 1. Then item 3, we have capacity 0. Then we have capacity 0, so we hit the base case and it's over. The total value occured from these recursions is 18, as we chose item 3 6 times. So, the maximum value is 18 for a weight of 6. 
